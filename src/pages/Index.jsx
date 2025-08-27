@@ -2,18 +2,18 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { GraduationCap, Users, BookOpen, QrCode, Clock, BarChart3, Sparkles } from "lucide-react";
+import { GraduationCap, Users, BookOpen, QrCode, BarChart3 } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
 
   const handleRoleSelect = (role) => {
-    navigate(`/${role}`);
+    navigate(`/${role}/signin`);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-amber-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl mx-auto animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-amber-50 flex flex-col items-center justify-between">
+      <div className="w-full max-w-4xl mx-auto animate-fade-in p-4">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-6">
@@ -127,7 +127,7 @@ const Index = () => {
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md border border-sky-100">
               <div className="bg-gradient-to-r from-sky-100 to-amber-100 rounded-full p-3 w-fit mx-auto mb-4">
-                <BarChart3 className="h-6 w-6 text-gradient-to-r from-sky-600 to-amber-500" />
+                <BarChart3 className="h-6 w-6 text-sky-600" />
               </div>
               <h3 className="font-semibold mb-2 text-sky-700">Real-time Analytics</h3>
               <p className="text-sm text-sky-600">
@@ -137,10 +137,56 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Additional decorative elements */}
+        {/* Decorative elements */}
         <div className="absolute top-10 left-10 w-24 h-24 bg-sky-200/30 rounded-full blur-xl"></div>
         <div className="absolute bottom-10 right-10 w-32 h-32 bg-amber-200/30 rounded-full blur-xl"></div>
       </div>
+
+      {/* Footer */}
+      <footer className="w-full bg-gradient-to-r from-sky-500 to-amber-400 text-white py-8 mt-12">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold mb-4">Attendify</h3>
+              <p className="text-sm">Streamlining classroom management with QR code attendance and interactive quizzes.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <button onClick={() => navigate('/about')} className="text-sm hover:underline focus:outline-none">About Us</button>
+                </li>
+                <li>
+                  <button onClick={() => navigate('/contact')} className="text-sm hover:underline focus:outline-none">Contact</button>
+                </li>
+                <li>
+                  <button onClick={() => navigate('/privacy')} className="text-sm hover:underline focus:outline-none">Privacy Policy</button>
+                </li>
+              </ul>
+            </div>
+            <div className="text-center md:text-right">
+              <h3 className="text-lg font-semibold mb-4">Get Started</h3>
+              <div className="space-y-2">
+                <Button 
+                  onClick={() => handleRoleSelect('lecturer')} 
+                  className="w-full bg-white text-sky-700 hover:bg-sky-100 transition-all"
+                >
+                  Lecturer Portal
+                </Button>
+                <Button 
+                  onClick={() => handleRoleSelect('student')} 
+                  className="w-full bg-white text-amber-700 hover:bg-amber-100 transition-all"
+                >
+                  Student Portal
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center text-sm border-t border-white/20 pt-4">
+            &copy; {new Date().getFullYear()} Attendify. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

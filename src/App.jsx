@@ -4,6 +4,8 @@ import { Toaster } from "./components/ui/toaster";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TooltipProvider } from "./components/ui/tooltip";
 import Index from "./pages/Index";
+import LecturerAuth from "./pages/LecturerAuth";
+import StudentAuth from "./pages/StudentAuth";
 
 function App() {
   return (
@@ -14,9 +16,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* <Route path="/lecturer" element={<LecturerDashboard />} />
-          <Route path="/student" element={<StudentDashboard />} />
-          <Route path="/class/:classId" element={<ClassDetails />} /> */}
+           <Route path="/lecturer/signin" element={<LecturerAuth />} />
+          <Route path="/student/signin" element={<StudentAuth />} />
+          {/* <Route path="/class" element={<AuthSystem />} />  */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
