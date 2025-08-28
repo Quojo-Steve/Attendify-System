@@ -66,7 +66,7 @@ const LecturerAuth = () => {
           transition={{ duration: 0.8 }}
           className="w-full max-w-md"
         >
-          <Card className="bg-white/30 backdrop-blur-md border border-sky-200/50 shadow-2xl rounded-2xl overflow-hidden">
+          <Card className="bg-white/5 backdrop-blur-md border border-sky-200/50 shadow-2xl rounded-2xl overflow-hidden">
             <CardHeader className="pb-4 text-center">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -156,7 +156,7 @@ const LecturerAuth = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
                   >
-                    <Button className="w-full bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white transition-all duration-300 hover:shadow-lg">
+                    <Button onClick={() => navigate("/lecturer/home")} className="w-full bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white transition-all duration-300 hover:shadow-lg">
                       Login
                     </Button>
                   </motion.div>
